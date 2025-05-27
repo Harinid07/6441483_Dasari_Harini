@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Community Event – Video Invitation</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #eef6f7;
+    }
+
+    h2 {
+      color: #2a4d69;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    video {
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(42, 77, 105, 0.3);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    #statusMessage {
+      font-weight: 600;
+      color: #2a4d69;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(42, 77, 105, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: 600;
+      color: #1b3a57;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1.5px solid #aacbd8;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 12px 24px;
+      background-color: #1b3a57;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #14314a;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Join Us for Our Exciting Community Gathering!</h2>
+
+  <video id="eventVideo" controls>
+    <source src="https://media.w3.org/2010/05/bunny/trailer.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div id="statusMessage">Please wait, loading your video...</div>
+
+  <form id="inviteForm">
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your full name" />
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+    <button type="submit">Send RSVP</button>
+  </form>
+
+  <script>
+    const video = document.getElementById("eventVideo");
+    const message = document.getElementById("statusMessage");
+    const form = document.getElementById("inviteForm");
+    let formChanged = false;
+
+    video.addEventListener("canplay", () => {
+      message.textContent = "🎉 Your video is ready to watch!";
+    });
+
+    form.addEventListener("input", () => {
+      formChanged = true;
+    });
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("✅ RSVP received! Thank you for joining us.");
+      form.reset();
+      formChanged = false;
+    });
+
+    window.onbeforeunload = function () {
+      if (formChanged) {
+        return "You have unsaved changes. Are you sure you want to leave?";
+      }
+    };
+  </script>
+
+</body>
+</html>
+
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Nearby Events</title>
+  <script>
+    function findLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError, {
+          enableHighAccuracy: true,
+          timeout: 10000
+        });
+      } else {
+        alert("Geolocation not supported.");
+      }
+    }
+
+    function showPosition(position) {
+      document.getElementById("result").innerText =
+        "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
+    }
+
+    function showError(error) {
+      const errors = {
+        1: "Permission denied.",
+        2: "Position unavailable.",
+        3: "Request timeout."
+      };
+      alert(errors[error.code] || "Unknown error.");
+    }
+  </script>
+</head>
+<body>
+  <h2>Geolocation Finder</h2>
+  <button onclick="findLocation()">Find Nearby Events</button>
+  <p id="result"></p>
+</body>
+</html>

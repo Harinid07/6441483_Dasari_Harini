@@ -1,0 +1,115 @@
+/* ========== Global Styles ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* ========== Header ========== */
+header {
+  background-color: #2a4d69;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 28px;
+}
+
+/* ========== Navigation ========== */
+nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+/* ========== Event Section ========== */
+.event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 30px 20px;
+  background-color: #ffffff;
+}
+
+.event img {
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.event .info {
+  max-width: 400px;
+}
+
+.event .info h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.event .info p {
+  font-size: 16px;
+}
+
+/* ========== Responsive Fixes ========== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  .event {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .event .info {
+    text-align: center;
+  }
+
+  .event img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  .event .info h2 {
+    font-size: 20px;
+  }
+
+  .event .info p {
+    font-size: 14px;
+  }
+}
